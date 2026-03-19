@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.minggle.fr/sitemap.xml
+
+# Crawl-delay pour être respectueux
+Crawl-delay: 1
+
+# Désindexer les pages inutiles
+Disallow: /cdn-cgi/
