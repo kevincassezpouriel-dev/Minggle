@@ -3122,26 +3122,10 @@ Trouve la colocation qui te ressemble.
   });
 
   // Handle legal hash on load
-  function routeFromHash() {
-  const hash = window.location.hash.replace('#', '');
-  const articleSlugs = ['les-regles-or-colocation','bail-solidaire-bail-individuel','colocation-aventure-humaine','5-cles-louer-sereinement'];
-  const legalS = ['cgu','confidentialite','mentions'];
-  if (articleSlugs.includes(hash)) showArticle(hash);
-  else if (legalS.includes(hash)) showLegal(hash);
-  else showMainSite();
-}
-
-window.addEventListener('load', () => {
-  // Masquer toutes les pages cachées
-  document.querySelectorAll('.article-page').forEach(p => p.style.display = 'none');
-  ['cgu','confidentialite','mentions'].forEach(s => {
-    const el = document.getElementById('page-'+s);
-    if (el) el.style.display = 'none';
+  window.addEventListener('load', () => {
+    const hash = window.location.hash.replace('#', '');
+    if (legalSlugs.includes(hash)) showLegal(hash);
   });
-  routeFromHash();
-});
-
-window.addEventListener('hashchange', routeFromHash);
 
 
   // Blog articles content
@@ -3390,6 +3374,24 @@ window.addEventListener('hashchange', routeFromHash);
     });
   }, 2500);
 
+
+// ===== ROUTING COMPLET =====
+function routeFromHash() {
+  var hash = window.location.hash.replace('#', '');
+  var articles = ['les-regles-or-colocation','bail-solidaire-bail-individuel','colocation-aventure-humaine','5-cles-louer-sereinement'];
+  var legals = ['cgu','confidentialite','mentions'];
+  if (articles.indexOf(hash) > -1) { showArticle(hash); }
+  else if (legals.indexOf(hash) > -1) { showLegal(hash); }
+  else { showMainSite(); }
+}
+window.addEventListener('load', function() {
+  document.querySelectorAll('.article-page').forEach(function(p){ p.style.display='none'; });
+  ['cgu','confidentialite','mentions'].forEach(function(s){ var el=document.getElementById('page-'+s); if(el) el.style.display='none'; });
+  if ($main) $main.style.display='';
+  routeFromHash();
+});
+window.addEventListener('hashchange', routeFromHash);
+window.addEventListener('popstate', routeFromHash);
 </script>
 
 <!-- PROFILE MODAL -->
@@ -3632,14 +3634,14 @@ window.addEventListener('hashchange', routeFromHash);
     <h2>Utilisation de l'Application</h2>
     <p>Il est interdit de publier des contenus illicites ou offensants, diffuser des annonces frauduleuses, harceler d'autres utilisateurs, ou utiliser l'Application à des fins commerciales sans autorisation. L'Éditeur peut suspendre tout compte ne respectant pas ces dispositions.</p>
     <h2>Données personnelles</h2>
-    <p>Conformément au RGPD, l'Utilisateur dispose d'un droit d'accès, de rectification, de suppression et d'opposition. Contact : <a href="/cdn-cgi/l/email-protection#97f4f8f9e3f6f4e3d7fafef9f0f0fbf2b9f1e5"><span class="__cf_email__" data-cfemail="ddbeb2b3a9bcbea99db0b4b3babab1b8f3bbaf">[email&#160;protected]</span></a></p>
+    <p>Conformément au RGPD, l'Utilisateur dispose d'un droit d'accès, de rectification, de suppression et d'opposition. Contact : <a href="/cdn-cgi/l/email-protection#30535f5e44515344705d595e57575c551e5642"><span class="__cf_email__" data-cfemail="20434f4e54414354604d494e47474c450e4652">[email&#160;protected]</span></a></p>
     <h2>Propriété intellectuelle</h2>
     <p>Tous les éléments de l'Application (nom, logo, interface, code, design) sont protégés par le droit de la propriété intellectuelle. Toute reproduction non autorisée est interdite.</p>
     <h2>Responsabilités</h2>
     <p>L'Éditeur n'est pas responsable des informations diffusées par les utilisateurs, des échanges entre utilisateurs, ni des interruptions de service. L'Utilisateur reste seul responsable de ses interactions.</p>
     <h2>Droit applicable</h2>
     <p>Les présentes CGU sont soumises au droit français. En cas de litige, une résolution amiable sera recherchée avant toute action judiciaire.</p>
-    <div class="legal-info-box">Contact : <a href="/cdn-cgi/l/email-protection#0764686973666473476a6e6960606b62296175"><span class="__cf_email__" data-cfemail="35565a5b4154564175585c5b525259501b5347">[email&#160;protected]</span></a></div>
+    <div class="legal-info-box">Contact : <a href="/cdn-cgi/l/email-protection#97f4f8f9e3f6f4e3d7fafef9f0f0fbf2b9f1e5"><span class="__cf_email__" data-cfemail="b0d3dfdec4d1d3c4f0ddd9ded7d7dcd59ed6c2">[email&#160;protected]</span></a></div>
   </div>
 </div>
 
@@ -3648,7 +3650,7 @@ window.addEventListener('hashchange', routeFromHash);
   <div class="legal-wrap">
     <p>La présente Politique décrit comment Minggle collecte, utilise, stocke et protège les données des utilisateurs. En utilisant l'Application, vous acceptez la présente Politique.</p>
     <h2>Responsable de traitement</h2>
-    <p>Le site minggle.fr est exploité dans le cadre d'un projet entrepreneurial. Contact : <a href="/cdn-cgi/l/email-protection#e5868a8b91848691a5888c8b82828980cb8397"><span class="__cf_email__" data-cfemail="9af9f5f4eefbf9eedaf7f3f4fdfdf6ffb4fce8">[email&#160;protected]</span></a></p>
+    <p>Le site minggle.fr est exploité dans le cadre d'un projet entrepreneurial. Contact : <a href="/cdn-cgi/l/email-protection#187b77766c797b6c587571767f7f747d367e6a"><span class="__cf_email__" data-cfemail="31525e5f45505245715c585f56565d541f5743">[email&#160;protected]</span></a></p>
     <h2>Données collectées</h2>
     <h3>Fournies par l'Utilisateur</h3>
     <ul><li>Nom, prénom, adresse e-mail</li><li>Photo(s) de profil</li><li>Informations de personnalité et habitudes de vie</li><li>Préférences de colocation, localisation approximative</li><li>Messages envoyés via la messagerie interne</li></ul>
@@ -3664,7 +3666,7 @@ window.addEventListener('hashchange', routeFromHash);
     <ul><li><strong>Accès</strong> : recevoir une copie de vos données</li><li><strong>Rectification</strong> : corriger vos informations</li><li><strong>Suppression</strong> : supprimer votre compte et vos données</li><li><strong>Opposition</strong> : refuser certains traitements</li><li><strong>Portabilité</strong> : exporter vos données</li></ul>
     <h2>Mineurs</h2>
     <p>L'Application est réservée aux personnes <strong>âgées d'au moins 16 ans</strong>.</p>
-    <div class="legal-info-box">Pour exercer vos droits : <a href="/cdn-cgi/l/email-protection#bfdcd0d1cbdedccbffd2d6d1d8d8d3da91d9cd"><span class="__cf_email__" data-cfemail="72111d1c06131106321f1b1c15151e175c1400">[email&#160;protected]</span></a></div>
+    <div class="legal-info-box">Pour exercer vos droits : <a href="/cdn-cgi/l/email-protection#0e6d61607a6f6d7a4e6367606969626b20687c"><span class="__cf_email__" data-cfemail="d3b0bcbda7b2b0a793bebabdb4b4bfb6fdb5a1">[email&#160;protected]</span></a></div>
   </div>
 </div>
 
@@ -3673,20 +3675,20 @@ window.addEventListener('hashchange', routeFromHash);
   <div class="legal-wrap">
     <p>Conformément aux dispositions des articles 6-III et 19 de la Loi n°2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique (LCEN).</p>
     <h2>Éditeur de l'application et du site</h2>
-    <p>Statut : Projet en cours de structuration juridique<br>Contact : <a href="/cdn-cgi/l/email-protection#34575b5a4055574074595d5a535358511a5246"><span class="__cf_email__" data-cfemail="9bf8f4f5effaf8efdbf6f2f5fcfcf7feb5fde9">[email&#160;protected]</span></a><br>Les informations juridiques (dénomination sociale, SIRET, adresse) seront mises à jour dès l'immatriculation de l'entreprise.</p>
+    <p>Statut : Projet en cours de structuration juridique<br>Contact : <a href="/cdn-cgi/l/email-protection#b0d3dfdec4d1d3c4f0ddd9ded7d7dcd59ed6c2"><span class="__cf_email__" data-cfemail="12717d7c66737166527f7b7c75757e773c7460">[email&#160;protected]</span></a><br>Les informations juridiques (dénomination sociale, SIRET, adresse) seront mises à jour dès l'immatriculation de l'entreprise.</p>
     <h2>Hébergeur du site</h2>
     <p><strong>Netlify, Inc.</strong><br>512 2nd Street, Suite 200, San Francisco, CA 94107, États-Unis<br><a href="https://www.netlify.com" target="_blank">www.netlify.com</a></p>
     <h2>Propriété intellectuelle</h2>
     <p>L'ensemble du contenu (textes, images, graphismes, logo) est la propriété exclusive de Minggle et protégé par le droit d'auteur. Toute reproduction non autorisée est strictement interdite.</p>
     <h2>Données personnelles</h2>
-    <p>Le traitement est régi par notre <a href="#confidentialite" onclick="showLegal('confidentialite');return false;"><strong>Politique de Confidentialité</strong></a>. Contact : <a href="/cdn-cgi/l/email-protection#30535f5e44515344705d595e57575c551e5642"><span class="__cf_email__" data-cfemail="583b37362c393b2c183531363f3f343d763e2a">[email&#160;protected]</span></a> — Aucune donnée n'est vendue ni cédée à des tiers.</p>
+    <p>Le traitement est régi par notre <a href="#confidentialite" onclick="showLegal('confidentialite');return false;"><strong>Politique de Confidentialité</strong></a>. Contact : <a href="/cdn-cgi/l/email-protection#781b17160c191b0c381511161f1f141d561e0a"><span class="__cf_email__" data-cfemail="dcbfb3b2a8bdbfa89cb1b5b2bbbbb0b9f2baae">[email&#160;protected]</span></a> — Aucune donnée n'est vendue ni cédée à des tiers.</p>
     <h2>Responsabilité</h2>
     <p>Minggle ne peut être tenue responsable d'une mauvaise utilisation de l'application, de contenus publiés par les utilisateurs, de dommages indirects, ni d'interruptions liées au réseau Internet. L'utilisateur reste seul responsable de ses interactions.</p>
     <h2>Signalement d'un contenu illicite</h2>
-    <p>Tout utilisateur peut signaler un contenu problématique à : <a href="/cdn-cgi/l/email-protection#84e7ebeaf0e5e7f0c4e9edeae3e3e8e1aae2f6"><span class="__cf_email__" data-cfemail="cba8a4a5bfaaa8bf8ba6a2a5acaca7aee5adb9">[email&#160;protected]</span></a></p>
+    <p>Tout utilisateur peut signaler un contenu problématique à : <a href="/cdn-cgi/l/email-protection#ee8d81809a8f8d9aae8387808989828bc0889c"><span class="__cf_email__" data-cfemail="d2b1bdbca6b3b1a692bfbbbcb5b5beb7fcb4a0">[email&#160;protected]</span></a></p>
     <h2>Loi applicable</h2>
     <p>Les présentes mentions légales sont régies par le droit français. En cas de litige, les tribunaux français seront compétents.</p>
-    <div class="legal-info-box">Contact : <a href="/cdn-cgi/l/email-protection#ddbeb2b3a9bcbea99db0b4b3babab1b8f3bbaf"><span class="__cf_email__" data-cfemail="cdaea2a3b9acaeb98da0a4a3aaaaa1a8e3abbf">[email&#160;protected]</span></a></div>
+    <div class="legal-info-box">Contact : <a href="/cdn-cgi/l/email-protection#d0b3bfbea4b1b3a490bdb9beb7b7bcb5feb6a2"><span class="__cf_email__" data-cfemail="62010d0c16030116220f0b0c05050e074c0410">[email&#160;protected]</span></a></div>
   </div>
 </div>
 
