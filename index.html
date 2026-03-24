@@ -1815,6 +1815,74 @@
     .bm-title { font-size: 1.3rem; }
     .blog-modal-overlay { padding: 20px 12px; }
   }
+
+  /* ====== COOKIE BANNER ====== */
+  .cookie-banner {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    background: var(--blue-dark);
+    color: white;
+    padding: 16px 24px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    max-width: 720px;
+    width: calc(100% - 48px);
+    box-shadow: 0 8px 40px rgba(13,15,26,0.35);
+    animation: cookieSlideUp 0.4s ease both;
+  }
+  @keyframes cookieSlideUp {
+    from { opacity:0; transform: translateX(-50%) translateY(20px); }
+    to   { opacity:1; transform: translateX(-50%) translateY(0); }
+  }
+  .cookie-banner.hidden { display: none; }
+  .cookie-text {
+    flex: 1;
+    font-size: 0.82rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.8);
+  }
+  .cookie-text a { color: var(--yellow); text-decoration: underline; }
+  .cookie-actions { display: flex; gap: 10px; flex-shrink: 0; }
+  .cookie-btn-accept {
+    background: var(--yellow);
+    color: var(--blue-dark);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 0.82rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .cookie-btn-accept:hover { background: #f5b060; transform: translateY(-1px); }
+  .cookie-btn-refuse {
+    background: transparent;
+    color: rgba(255,255,255,0.5);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 10px 16px;
+    border-radius: 50px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 0.82rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .cookie-btn-refuse:hover { color: white; border-color: rgba(255,255,255,0.5); }
+  @media(max-width:600px) {
+    .cookie-banner { flex-direction: column; align-items: flex-start; gap: 14px; bottom: 16px; }
+    .cookie-actions { width: 100%; }
+    .cookie-btn-accept { flex: 1; text-align: center; }
+    .cookie-btn-refuse { flex: 1; text-align: center; }
+  }
+
 </style>
 </head>
 <body>
@@ -3112,7 +3180,26 @@ Trouve la colocation qui te ressemble.
     <p><a href="/cdn-cgi/l/email-protection#197a76776d787a6d597470777e7e757c377f6b" style="color:#6488E5;"><span class="__cf_email__" data-cfemail="95f6fafbe1f4f6e1d5f8fcfbf2f2f9f0bbf3e7">[email&#160;protected]</span></a></p>
   </div>
 </div>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">
+
+  // ====== COOKIE BANNER ======
+  (function() {
+    var choice = localStorage.getItem('minggle_cookies');
+    if (choice) {
+      var el = document.getElementById('cookieBanner');
+      if (el) el.classList.add('hidden');
+    }
+  })();
+  function acceptCookies() {
+    localStorage.setItem('minggle_cookies', 'accepted');
+    document.getElementById('cookieBanner').classList.add('hidden');
+  }
+  function refuseCookies() {
+    localStorage.setItem('minggle_cookies', 'refused');
+    document.getElementById('cookieBanner').classList.add('hidden');
+  }
+
+</script><script>
 (function() {
   var ART   = ['les-regles-or-colocation','bail-solidaire-bail-individuel','colocation-aventure-humaine','5-cles-louer-sereinement'];
   var LEGAL = ['cgu','confidentialite','mentions'];
