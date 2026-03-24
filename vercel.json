@@ -1,0 +1,13 @@
+{
+  "rewrites": [
+    { "source": "/article/:slug", "destination": "/article/:slug.html" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-cache" }
+      ]
+    }
+  ]
+}
