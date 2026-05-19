@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Supprimer mon compte — Minggle</title>
+  <meta name="description" content="Demander la suppression de votre compte Minggle et de vos données personnelles.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue: #6488E5;
+      --blue-dark: #22254C;
+      --blue-light: #EEF2FC;
+      --yellow: #F9BE7D;
+      --white: #FAFAF8;
+      --black: #0D0F1A;
+      --gray: #F0F0ED;
+      --text-muted: #888896;
+      --text-body: #3a3a4a;
+      --border: #E8E6DF;
+      --success: #27AE60;
+      --warning: #C97B3A;
+      --radius: 20px;
+      --radius-sm: 10px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--white);
+      color: var(--black);
+      overflow-x: hidden;
+    }
+
+    /* ====== NAV ====== */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 18px 40px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(250,250,248,0.92);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(100,136,229,0.1);
+    }
+
+    .nav-logo {
+      font-weight: 800;
+      font-size: 1.4rem;
+      color: var(--blue-dark);
+      text-decoration: none;
+      display: flex; align-items: center; gap: 8px;
+    }
+
+    .nav-logo-mark {
+      width: 32px; height: 32px;
+      background: var(--blue);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 1rem; font-weight: 800;
+    }
+
+    .nav-back {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-back:hover { color: var(--blue-dark); }
+
+    .nav-back svg { width: 16px; height: 16px; }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 20px; }
+    }
+
+    /* ====== HERO HEADER ====== */
+    .page-hero {
+      margin-top: 73px;
+      background: var(--blue-dark);
+      padding: 64px 40px 52px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -80px;
+      width: 300px; height: 300px;
+      background: var(--blue);
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.2;
+    }
+
+    .page-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -40px; left: -60px;
+      width: 200px; height: 200px;
+      background: var(--yellow);
+      border-radius: 50%;
+      filter: blur(70px);
+      opacity: 0.12;
+    }
+
+    .page-hero-inner { position: relative; z-index: 1; }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      margin-bottom: 16px;
+    }
+
+    .page-hero h1 {
+      font-weight: 800;
+      font-size: clamp(1.7rem, 3.5vw, 2.4rem);
+      color: white;
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+
+    .page-hero p {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* ====== MAIN CONTENT ====== */
+    .content-wrap {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 56px 24px 96px;
+    }
+
+    /* ====== CTA CARD ====== */
+    .cta-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px;
+      margin-bottom: 56px;
+      box-shadow: 0 2px 0 var(--border), 0 20px 40px -16px rgba(100,136,229,0.15);
+    }
+
+    .cta-card h2 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--blue-dark);
+      margin-bottom: 8px;
+    }
+
+    .cta-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      line-height: 1.7;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--blue);
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 14px 28px;
+      border-radius: 50px;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      font-family: inherit;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background: var(--blue-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px -8px rgba(100,136,229,0.45);
+    }
+
+    .btn-primary svg {
+      width: 16px; height: 16px;
+      transition: transform 0.2s;
+    }
+
+    .btn-primary:hover svg { transform: translateX(3px); }
+
+    .email-fallback {
+      display: block;
+      margin-top: 16px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .email-fallback a {
+      color: var(--blue);
+      text-decoration: underline;
+    }
+
+    /* ====== SECTION TITLES ====== */
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--blue-dark);
+      margin: 0 0 24px;
+      padding-left: 14px;
+      border-left: 4px solid var(--blue);
+    }
+
+    section { margin-bottom: 56px; }
+
+    /* ====== STEPS ====== */
+    .steps { list-style: none; counter-reset: step; }
+
+    .steps li {
+      counter-increment: step;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--gray);
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .steps li:last-child { border-bottom: none; }
+
+    .step-num {
+      flex-shrink: 0;
+      width: 36px; height: 36px;
+      background: var(--blue-light);
+      color: var(--blue);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800;
+      font-size: 0.85rem;
+    }
+
+    .step-num-label {
+      /* we use a JS-free approach via counter in pseudo */
+      display: contents;
+    }
+
+    .step-body strong {
+      display: block;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--blue-dark);
+      margin-bottom: 4px;
+    }
+
+    .step-body span {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* ====== DATA GRID ====== */
+    .data-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 600px) {
+      .data-grid { grid-template-columns: 1fr; }
+    }
+
+    .data-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+    }
+
+    .data-card-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .data-icon {
+      width: 32px; height: 32px;
+      border-radius: var(--radius-sm);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .data-icon.delete {
+      background: rgba(39, 174, 96, 0.12);
+      color: var(--success);
+    }
+
+    .data-icon.keep {
+      background: rgba(201,123,58,0.12);
+      color: var(--warning);
+    }
+
+    .data-card h3 {
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: var(--blue-dark);
+    }
+
+    .data-list { list-style: none; }
+
+    .data-list li {
+      padding: 7px 0;
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      line-height: 1.5;
+    }
+
+    .data-list li::before {
+      content: '';
+      flex-shrink: 0;
+      width: 5px; height: 5px;
+      background: var(--text-muted);
+      border-radius: 50%;
+      margin-top: 7px;
+      opacity: 0.45;
+    }
+
+    .data-duration {
+      font-size: 0.78rem;
+      color: var(--blue);
+      font-weight: 600;
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px dashed var(--border);
+    }
+
+    /* ====== FOOTER ====== */
+    .page-footer {
+      background: var(--blue-dark);
+      padding: 40px 24px;
+      text-align: center;
+    }
+
+    .page-footer p {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 16px;
+    }
+
+    .page-footer p a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: underline;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px 20px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.45);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--yellow); }
+
+    .footer-sep {
+      color: rgba(255,255,255,0.2);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ====== NAV ====== -->
+  <nav>
+    <a href="https://www.minggle.fr" class="nav-logo">
+      <div class="nav-logo-mark">M</div>
+      Minggle
+    </a>
+    <a href="https://www.minggle.fr" class="nav-back">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+      </svg>
+      Retour au site
+    </a>
+  </nav>
+
+  <!-- ====== HERO ====== -->
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <span class="eyebrow">Mes données · RGPD</span>
+      <h1>Supprimer mon compte Minggle</h1>
+      <p>Tu peux à tout moment demander la suppression de ton compte et de toutes les données associées.</p>
+    </div>
+  </div>
+
+  <!-- ====== CONTENT ====== -->
+  <div class="content-wrap">
+
+    <!-- CTA -->
+    <div class="cta-card">
+      <h2>Demander la suppression</h2>
+      <p>Envoie-nous un email avec l'objet "Suppression de compte" et l'adresse email liée à ton compte. On s'occupe de tout sous 30 jours.</p>
+      <a href="mailto:contact@minggle.fr?subject=Suppression%20de%20mon%20compte%20Minggle&body=Bonjour,%0D%0A%0D%0AJe%20souhaite%20demander%20la%20suppression%20de%20mon%20compte%20Minggle%20et%20de%20toutes%20les%20donn%C3%A9es%20associ%C3%A9es.%0D%0A%0D%0AAdresse%20email%20de%20mon%20compte%20:%20%5B%C3%A0%20compl%C3%A9ter%5D%0D%0A%0D%0AMerci."
+         class="btn-primary">
+        Envoyer un email
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+      <span class="email-fallback">
+        Si le bouton ne fonctionne pas, écris directement à <a href="mailto:contact@minggle.fr">contact@minggle.fr</a>
+      </span>
+    </div>
+
+    <!-- Comment ça marche -->
+    <section>
+      <h2 class="section-title">Comment ça marche</h2>
+      <ol class="steps">
+        <li>
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <strong>Envoie ta demande par email</strong>
+            <span>À l'adresse contact@minggle.fr, avec l'objet "Suppression de compte" et l'adresse email associée à ton compte.</span>
+          </div>
+        </li>
+        <li>
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <strong>On confirme la réception</strong>
+            <span>Tu reçois un email de confirmation sous 48h ouvrées pour valider l'identité du compte.</span>
+          </div>
+        </li>
+        <li>
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <strong>Suppression effective</strong>
+            <span>Ton compte et tes données sont supprimés définitivement sous 30 jours après confirmation.</span>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- Données -->
+    <section>
+      <h2 class="section-title">Tes données, en détail</h2>
+      <div class="data-grid">
+
+        <div class="data-card">
+          <div class="data-card-header">
+            <div class="data-icon delete">✓</div>
+            <h3>Supprimé définitivement</h3>
+          </div>
+          <ul class="data-list">
+            <li>Profil (prénom, photo, bio)</li>
+            <li>Préférences et réponses au questionnaire</li>
+            <li>Messages échangés</li>
+            <li>Matchs et historique d'activité</li>
+            <li>Identifiants de connexion</li>
+            <li>Photos et contenus uploadés</li>
+          </ul>
+          <div class="data-duration">Délai : sous 30 jours</div>
+        </div>
+
+        <div class="data-card">
+          <div class="data-card-header">
+            <div class="data-icon keep">!</div>
+            <h3>Conservé (obligation légale)</h3>
+          </div>
+          <ul class="data-list">
+            <li>Données de facturation (Code de commerce)</li>
+            <li>Logs de sécurité anonymisés</li>
+            <li>Données nécessaires en cas de litige en cours</li>
+          </ul>
+          <div class="data-duration">Durée : 10 ans (facturation) · 12 mois (logs)</div>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ====== FOOTER ====== -->
+  <footer class="page-footer">
+    <p>Une question ? Écris-nous à <a href="mailto:contact@minggle.fr">contact@minggle.fr</a></p>
+    <ul class="footer-links">
+      <li><a href="/legal/confidentialite.html">Politique de confidentialité</a></li>
+      <li class="footer-sep">·</li>
+      <li><a href="/legal/cgu.html">CGU</a></li>
+      <li class="footer-sep">·</li>
+      <li><a href="/legal/mentions.html">Mentions légales</a></li>
+      <li class="footer-sep">·</li>
+      <li><a href="https://www.minggle.fr">Retour au site</a></li>
+    </ul>
+  </footer>
+
+</body>
+</html>
