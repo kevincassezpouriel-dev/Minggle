@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Normes de sécurité des enfants — Minggle</title>
+  <meta name="description" content="Politique de Minggle contre l'exploitation et les abus sexuels sur mineurs (CSAM). Normes de sécurité publiées conformément aux exigences de Google Play.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue: #6488E5;
+      --blue-dark: #22254C;
+      --blue-light: #EEF2FC;
+      --yellow: #F9BE7D;
+      --white: #FAFAF8;
+      --black: #0D0F1A;
+      --gray: #F0F0ED;
+      --text-muted: #888896;
+      --text-body: #3a3a4a;
+      --border: #E8E6DF;
+      --success: #27AE60;
+      --radius: 20px;
+      --radius-sm: 10px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--white);
+      color: var(--black);
+      overflow-x: hidden;
+    }
+
+    /* ====== NAV ====== */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 18px 40px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(250,250,248,0.92);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(100,136,229,0.1);
+    }
+
+    .nav-logo {
+      font-weight: 800;
+      font-size: 1.4rem;
+      color: var(--blue-dark);
+      text-decoration: none;
+      display: flex; align-items: center; gap: 8px;
+    }
+
+    .nav-logo-mark {
+      width: 32px; height: 32px;
+      background: var(--blue);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 1rem; font-weight: 800;
+    }
+
+    .nav-back {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--text-muted);
+      font-size: 0.85rem; font-weight: 500;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--blue-dark); }
+    .nav-back svg { width: 16px; height: 16px; }
+
+    @media (max-width: 600px) { nav { padding: 16px 20px; } }
+
+    /* ====== HERO ====== */
+    .page-hero {
+      margin-top: 73px;
+      background: var(--blue-dark);
+      padding: 64px 40px 52px;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute; top: -60px; right: -80px;
+      width: 300px; height: 300px;
+      background: var(--blue); border-radius: 50%;
+      filter: blur(80px); opacity: 0.2;
+    }
+    .page-hero::after {
+      content: '';
+      position: absolute; bottom: -40px; left: -60px;
+      width: 200px; height: 200px;
+      background: var(--yellow); border-radius: 50%;
+      filter: blur(70px); opacity: 0.12;
+    }
+    .page-hero-inner { position: relative; z-index: 1; }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--yellow); margin-bottom: 16px;
+    }
+
+    .page-hero h1 {
+      font-weight: 800;
+      font-size: clamp(1.7rem, 3.5vw, 2.4rem);
+      color: white; margin-bottom: 12px; line-height: 1.2;
+    }
+    .page-hero p {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* ====== CONTENT ====== */
+    .content-wrap {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 56px 24px 96px;
+    }
+
+    /* ====== ALERT CARD ====== */
+    .alert-card {
+      background: #FFF8E7;
+      border: 1.5px solid #F9BE7D;
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      margin-bottom: 48px;
+      display: flex; gap: 16px; align-items: flex-start;
+    }
+    .alert-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 2px; }
+    .alert-card p { font-size: 0.88rem; line-height: 1.7; color: #5a4a00; }
+    .alert-card strong { color: #3a3000; }
+
+    /* ====== SECTION TITLES ====== */
+    .section-title {
+      font-size: 1.1rem; font-weight: 800;
+      color: var(--blue-dark);
+      margin: 0 0 20px;
+      padding-left: 14px;
+      border-left: 4px solid var(--blue);
+    }
+
+    section { margin-bottom: 52px; }
+
+    /* ====== POLICY BLOCKS ====== */
+    .policy-text {
+      font-size: 0.9rem; line-height: 1.8;
+      color: var(--text-body);
+      margin-bottom: 16px;
+    }
+
+    /* ====== COMMITMENT LIST ====== */
+    .commitment-list { list-style: none; }
+    .commitment-list li {
+      display: flex; gap: 14px; align-items: flex-start;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--gray);
+      font-size: 0.88rem; line-height: 1.7; color: var(--text-body);
+    }
+    .commitment-list li:last-child { border-bottom: none; }
+    .commitment-icon {
+      flex-shrink: 0;
+      width: 32px; height: 32px;
+      background: #E8F8F0;
+      color: var(--success);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 0.9rem;
+    }
+    .commitment-list li strong {
+      display: block; font-weight: 700;
+      color: var(--blue-dark); margin-bottom: 3px;
+      font-size: 0.9rem;
+    }
+
+    /* ====== REPORTING CARD ====== */
+    .report-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      box-shadow: 0 2px 0 var(--border), 0 16px 32px -12px rgba(100,136,229,0.12);
+    }
+    .report-card h3 {
+      font-size: 1rem; font-weight: 800;
+      color: var(--blue-dark); margin-bottom: 10px;
+    }
+    .report-card p {
+      font-size: 0.875rem; line-height: 1.7;
+      color: var(--text-muted); margin-bottom: 20px;
+    }
+    .contact-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--blue-dark); color: white;
+      text-decoration: none; font-weight: 700; font-size: 0.9rem;
+      padding: 13px 24px; border-radius: 50px;
+      transition: background 0.2s;
+    }
+    .contact-btn:hover { background: var(--blue); }
+
+    /* ====== EXTERNAL LINKS ====== */
+    .ext-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .ext-links a {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--blue); font-size: 0.875rem; font-weight: 500;
+      text-decoration: underline;
+    }
+    .ext-links a:hover { color: var(--blue-dark); }
+
+    /* ====== FOOTER ====== */
+    .page-footer {
+      background: var(--blue-dark);
+      padding: 40px 24px;
+      text-align: center;
+    }
+    .page-footer p {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 16px;
+    }
+    .page-footer p a { color: rgba(255,255,255,0.7); text-decoration: underline; }
+    .footer-links {
+      display: flex; flex-wrap: wrap;
+      justify-content: center; gap: 6px 20px; list-style: none;
+    }
+    .footer-links a {
+      font-size: 0.8rem; color: rgba(255,255,255,0.45);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--yellow); }
+    .footer-sep { color: rgba(255,255,255,0.2); }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="https://www.minggle.fr" class="nav-logo">
+      <div class="nav-logo-mark">M</div>
+      Minggle
+    </a>
+    <a href="https://www.minggle.fr" class="nav-back">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+      </svg>
+      Retour au site
+    </a>
+  </nav>
+
+  <!-- HERO -->
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <span class="eyebrow">Sécurité · Conformité Google Play</span>
+      <h1>Normes de sécurité des enfants</h1>
+      <p>Politique de Minggle contre l'exploitation et les abus sexuels sur mineurs (CSAM)</p>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content-wrap">
+
+    <!-- Alerte -->
+    <div class="alert-card">
+      <div class="alert-icon">🛡️</div>
+      <p><strong>Minggle a une politique de tolérance zéro</strong> envers tout contenu ou comportement constituant une exploitation sexuelle ou un abus sur mineurs. Tout manquement à ces normes entraîne une suppression immédiate du compte et un signalement aux autorités compétentes.</p>
+    </div>
+
+    <!-- Engagement -->
+    <section>
+      <h2 class="section-title">Nos engagements</h2>
+      <ul class="commitment-list">
+        <li>
+          <div class="commitment-icon">✓</div>
+          <div>
+            <strong>Interdiction absolue de tout contenu CSAM</strong>
+            Il est strictement interdit de publier, partager, stocker ou distribuer tout contenu à caractère sexuel impliquant des mineurs. Toute violation entraîne une suppression immédiate du compte.
+          </div>
+        </li>
+        <li>
+          <div class="commitment-icon">✓</div>
+          <div>
+            <strong>Vérification de l'âge des utilisateurs</strong>
+            Minggle est réservée aux personnes de 18 ans et plus. Nous mettons en œuvre des mesures de vérification d'âge lors de l'inscription et surveillons les comportements suspects.
+          </div>
+        </li>
+        <li>
+          <div class="commitment-icon">✓</div>
+          <div>
+            <strong>Détection et suppression proactive</strong>
+            Nous utilisons des outils de modération automatisés et humains pour détecter et supprimer tout contenu inapproprié, en particulier tout contenu impliquant des mineurs.
+          </div>
+        </li>
+        <li>
+          <div class="commitment-icon">✓</div>
+          <div>
+            <strong>Signalement aux autorités</strong>
+            Minggle signale systématiquement tout contenu CSAM détecté au Centre national pour les enfants disparus et exploités (NCMEC) ainsi qu'aux autorités françaises compétentes (Police nationale, PHAROS).
+          </div>
+        </li>
+        <li>
+          <div class="commitment-icon">✓</div>
+          <div>
+            <strong>Outil de signalement accessible</strong>
+            Chaque utilisateur peut signaler un contenu ou un comportement inapproprié directement depuis l'application. Tout signalement est traité dans les plus brefs délais.
+          </div>
+        </li>
+        <li>
+          <div class="commitment-icon">✓</div>
+          <div>
+            <strong>Coopération avec les autorités</strong>
+            Minggle coopère pleinement avec toute enquête des forces de l'ordre concernant des abus ou l'exploitation d'enfants, y compris en fournissant les données nécessaires sur réquisition judiciaire.
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Comportements interdits -->
+    <section>
+      <h2 class="section-title">Comportements strictement interdits</h2>
+      <p class="policy-text">Les comportements suivants sont formellement interdits sur Minggle et donnent lieu à une suppression immédiate du compte ainsi qu'à un signalement aux autorités :</p>
+      <p class="policy-text">• Tout contenu sexuellement explicite impliquant des mineurs (images, vidéos, textes, dessins)</p>
+      <p class="policy-text">• Tout comportement de grooming ou de sollicitation sexuelle d'un mineur</p>
+      <p class="policy-text">• Tout partage, distribution ou promotion de contenu CSAM</p>
+      <p class="policy-text">• Toute tentative de contourner les mécanismes de vérification d'âge</p>
+      <p class="policy-text">• Tout comportement prédateur visant des mineurs ou des personnes vulnérables</p>
+    </section>
+
+    <!-- Comment signaler -->
+    <section>
+      <h2 class="section-title">Comment signaler un contenu inapproprié</h2>
+      <div class="report-card">
+        <h3>📢 Signaler via l'application</h3>
+        <p>Dans l'application Minggle, appuyez sur les trois points (⋯) sur le profil ou le message concerné, puis sélectionnez « Signaler ». Notre équipe de modération traite chaque signalement dans un délai de 24 heures.</p>
+        <h3 style="margin-top: 20px;">📧 Signaler par email</h3>
+        <p>Pour tout signalement urgent ou si vous avez connaissance d'un contenu CSAM, contactez-nous directement à :</p>
+        <a href="mailto:contact@minggle.fr?subject=Signalement%20sécurité%20enfants&body=Bonjour,%0D%0A%0D%0AJe%20souhaite%20signaler%20le%20contenu%20suivant%20:%0D%0A%0D%0ADescription%20:%0D%0A%0D%0AUtilisateur%20concerné%20:%0D%0A%0D%0AMerci." class="contact-btn">
+          ✉️ Envoyer un signalement
+        </a>
+        <p style="margin-top: 14px; font-size: 0.82rem; color: var(--text-muted);">
+          Si le bouton ne fonctionne pas, merci de nous envoyer un email à <a href="mailto:support@minggle.fr" style="color: var(--blue);">support@minggle.fr</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Ressources externes -->
+    <section>
+      <h2 class="section-title">Ressources et organismes compétents</h2>
+      <p class="policy-text">Si vous êtes témoin d'une exploitation ou d'abus sexuels sur un mineur, signalez-le immédiatement aux autorités compétentes :</p>
+      <ul class="ext-links">
+        <li>
+          <a href="https://www.internet-signalement.gouv.fr" target="_blank" rel="noopener">
+            🔗 PHAROS — Signalement de contenus illicites en France
+          </a>
+        </li>
+        <li>
+          <a href="https://www.cybermalveillance.gouv.fr" target="_blank" rel="noopener">
+            🔗 Cybermalveillance.gouv.fr — Aide aux victimes de cybermalveillance
+          </a>
+        </li>
+        <li>
+          <a href="https://www.missingkids.org/gethelpnow/cybertipline" target="_blank" rel="noopener">
+            🔗 NCMEC CyberTipline — Signalement international (anglais)
+          </a>
+        </li>
+        <li>
+          <a href="https://support.google.com/googleplay/android-developer/answer/14747720" target="_blank" rel="noopener">
+            🔗 Politique Google Play — Normes de sécurité des enfants
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Mise à jour -->
+    <section>
+      <h2 class="section-title">Mise à jour de cette politique</h2>
+      <p class="policy-text">Cette politique peut être mise à jour à tout moment pour refléter l'évolution de nos pratiques ou des exigences légales. La date de dernière mise à jour est indiquée en bas de page.</p>
+      <p class="policy-text">Pour toute question relative à cette politique, contactez-nous à <a href="mailto:contact@minggle.fr" style="color: var(--blue);">contact@minggle.fr</a>.</p>
+      <p class="policy-text" style="color: var(--text-muted); font-size: 0.82rem;">Dernière mise à jour : Juin 2025</p>
+    </section>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="page-footer">
+    <p>Questions ? Écrivez-nous à <a href="mailto:contact@minggle.fr">contact@minggle.fr</a></p>
+    <ul class="footer-links">
+      <li><a href="/legal/confidentialite.html">Politique de confidentialité</a></li>
+      <li class="footer-sep">·</li>
+      <li><a href="/legal/cgu.html">CGU</a></li>
+      <li class="footer-sep">·</li>
+      <li><a href="/legal/mentions.html">Mentions légales</a></li>
+      <li class="footer-sep">·</li>
+      <li><a href="/legal/supprimer-mon-compte.html">Supprimer mon compte</a></li>
+      <li class="footer-sep">·</li>
+      <li><a href="https://www.minggle.fr">Retour au site</a></li>
+    </ul>
+  </footer>
+
+</body>
+</html>
